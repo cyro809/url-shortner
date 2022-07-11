@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/cyro809/url-shortner#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
+    "mongoose": "^6.4.4",
     "randomstring": "^1.2.2"
   },
   "devDependencies": {
