@@ -11,6 +11,8 @@ class UrlRepository {
     async getUrlByHash(urlHash) {
         return Url.findOne({ 'shortUrlHash': urlHash })
             .then(function(urlInfo) {
+                urlInfo.viewCount++;
+                urlInfo.save();
                 return urlInfo.url
             })
             .catch(function(err) {
