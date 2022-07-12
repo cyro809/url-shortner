@@ -9,3 +9,6 @@ run:
 
 test:
 	npm run test
+
+lint:
+	eslint src/*
