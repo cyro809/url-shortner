@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const { getAllUrls, createShortUrl} = require("../controllers/url")
+const { getAllUrls, createShortUrl, getNormalUrl} = require("../controllers/url")
 
-router.get('/', function(req, res) {
-    getAllUrls();
+router.get('/', async function(req, res) {
+    const data = await getAllUrls();
+
+    res.json(data);
 })
 
 
-router.get('/:shortUrl', function(req, res) {
-    res.json(req.params);
+router.get('/:shortUrl', async function(req, res) {
+    const data = await getNormalUrl(req.params.shortUrl);
+    res.send(data);
 });
 
-router.post('/', function(req, res) {
-    const data = createShortUrl(req.body);
+router.post('/', async function(req, res) {
+    const data = await createShortUrl(req.body);
     res.json(data);
 })
 

@@ -23,6 +23,7 @@
     "randomstring": "^1.2.2"
   },
   "devDependencies": {
-    "jest": "^28.1.2"
+    "jest": "^28.1.2",
+    "nodemon": "^2.0.19"
   }
 }

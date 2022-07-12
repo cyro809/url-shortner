@@ -6,16 +6,17 @@ function generateHash() {
 }
 
 function getNormalUrl(shortUrlHash) {
-    const url = getUrlByHash(shortUrlHash);
+    const url = UrlRepository.getUrlByHash(shortUrlHash);
     return url;
 }
 
-function getAllUrls() {
-    return UrlRepository.getAllUrls();
+async function getAllUrls() {
+    const data = await UrlRepository.getAllUrls();
+    return data;
 }
 
 function createShortUrl(data) {
-    data['shortUrlHash'] = generateHash();
+    data.shortUrlHash = generateHash();
     return UrlRepository.create(data);
 }
 
@@ -23,5 +24,6 @@ function createShortUrl(data) {
 module.exports = {
     generateHash,
     createShortUrl,
-    getAllUrls
+    getAllUrls,
+    getNormalUrl
 }

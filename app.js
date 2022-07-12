@@ -13,8 +13,7 @@ app.use('/url', url);
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-
+db.connect();
 app.listen(port, () => {
-  db.connect();
   console.log(`Example app listening on port ${port}`)
 })
