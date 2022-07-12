@@ -9,8 +9,13 @@ class UrlRepository {
     }
 
     async getUrlByHash(urlHash) {
-        const urlInfo = await Url.findOne({ 'shortUrlHash': urlHash })
-        return urlInfo.url;
+        return Url.findOne({ 'shortUrlHash': urlHash })
+            .then(function(urlInfo) {
+                return urlInfo.url
+            })
+            .catch(function(err) {
+                throw err;
+            })
     }
 
     async create(data) {

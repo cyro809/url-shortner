@@ -1,21 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const { getAllUrls, createShortUrl, getNormalUrl} = require("../controllers/url")
+const UrlController  = require("../controllers/url")
 
 router.get('/', async function(req, res) {
-    const data = await getAllUrls();
-
+    const data = await UrlController.getAllUrls();
     res.json(data);
 })
 
 
 router.get('/:shortUrl', async function(req, res) {
-    const data = await getNormalUrl(req.params.shortUrl);
-    res.send(data);
+    try{
+        const data = await UrlController.getNormalUrl(req.params.shortUrl);
+        res.send(data);
+    }
+    catch (err){
+        res.status(404).send("Url not found!");
+    }
 });
 
 router.post('/', async function(req, res) {
-    const data = await createShortUrl(req.body);
+    const data = await UrlController.createShortUrl(req.body);
     res.json(data);
 })
 
