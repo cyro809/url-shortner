@@ -2,7 +2,7 @@ setup:
 	npm install
 
 run_local:
-	nodemon app.js
+	docker-compose up
 
 run:
 	node app.js
