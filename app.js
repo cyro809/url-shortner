@@ -9,8 +9,11 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use('/url', url);
 
+app.set('view engine', 'pug');
+app.set('views', './src/views');
+
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.render('index');
 });
 db.connect();
 app.listen(port, () => {
