@@ -18,7 +18,8 @@ class UrlRepository {
   }
 
   static async create(data) {
-    await Url.create(data);
+    const urlData = await Url.create(data);
+    return urlData;
   }
 }
 
