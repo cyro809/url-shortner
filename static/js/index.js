@@ -14,13 +14,10 @@ async function sendUrl(url, data) {
   return response.json();
 }
 
-function showShortUrl(shortUrl, sendButton) {
-  const shortUrlContainer = document.createElement('div');
-  const shortUrlText = document.createElement('a');
+function showShortUrl(shortUrl) {
+  const shortUrlText = document.querySelector('.short-url-text');
   shortUrlText.innerText = `${window.location.href}/url/${shortUrl}`;
   shortUrlText.href = `/url/${shortUrl}`;
-  shortUrlContainer.append(shortUrlText);
-  sendButton.after(shortUrlContainer);
 }
 
 function bindSendButton() {
@@ -28,7 +25,7 @@ function bindSendButton() {
   sendButton.addEventListener('click', async (event) => {
     const urlField = document.querySelector('input.url-input-field');
     const response = await sendUrl('/url', { url: urlField.value });
-    showShortUrl(response.shortUrlHash, event.target);
+    showShortUrl(response.shortUrlHash);
     event.preventDefault();
   });
 }
