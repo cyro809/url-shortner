@@ -3,4 +3,11 @@ head
 
 body
   h1.title Welcome to short.me!
-  h2 You're about to be redirected to =shortUrl
+  if url
+    h2 You're about to be redirected to #{url}
+    div.countdown-container
+      p.countdown Redirecting in
+        p#countdown-timer 5 seconds
+  else
+    h2 Url not found!
+  script(src='/static/js/redirect.js')
