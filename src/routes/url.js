@@ -11,9 +11,9 @@ router.get('/', async (req, res) => {
 router.get('/:shortUrl', async (req, res) => {
   try {
     const data = await UrlController.getNormalUrl(req.params.shortUrl);
-    res.send(data);
+    res.render('url_redirect', { url: data });
   } catch (err) {
-    res.status(404).send('Url not found!');
+    res.status(404).render('url_redirect');
   }
 });
 
