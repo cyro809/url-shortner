@@ -4,7 +4,7 @@ head
 body
   h1.title Welcome to short.me!
   if url
-    h2 You're about to be redirected to #[a(id='url-link' href=url)=url]
+    h2.subtitle You're about to be redirected to #[a(id='url-link' href=url)=url]
     div.countdown-container
       p.countdown Redirecting #[span(id='countdown-timer') in 5 seconds]
   else
