@@ -5,7 +5,7 @@ services:
     build: '.'
     volumes:
       - ./:/app
-      - ./node_modules:/app/node_modules
+      - /app/node_modules
     environment:
       NODE_ENV: development
     depends_on:
@@ -16,7 +16,7 @@ services:
       - '3000:3000'
 
   db:
-    image: 'mongo'
+    image: 'mongo:4.4.6'
     ports:
       - '27017:27017'
     volumes:
