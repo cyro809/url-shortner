@@ -23,7 +23,8 @@
     "mongoose": "^6.4.4",
     "pug": "^3.0.2",
     "randomstring": "^1.2.2",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "mongodb": "6.3.0"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
