@@ -2,6 +2,9 @@
   "name": "url-shortner",
   "version": "1.0.0",
   "description": "Url shortner made with NodeJS with ExpressJS web app",
+  "engines": {
+    "node": "16.20.2"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jest",
