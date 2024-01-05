@@ -16,7 +16,7 @@ async function sendUrl(url, data) {
 
 function showShortUrl(shortUrl) {
   const shortUrlText = document.querySelector('.short-url-text');
-  shortUrlText.innerText = `${window.location.href}/url/${shortUrl}`;
+  shortUrlText.innerText = `${window.location.href}url/${shortUrl}`;
   shortUrlText.href = `/url/${shortUrl}`;
 }
 
