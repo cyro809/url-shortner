@@ -7,7 +7,7 @@ const url = require('./src/routes/url');
 const db = require('./config/db.config');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use('/url', url);
 app.use('/static', express.static(path.join(__dirname, 'static')));
